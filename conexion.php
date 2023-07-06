@@ -3,7 +3,7 @@
     $host = 'localhost';
     $user = 'root';
     $password = '';
-    $bd = 'bstesis'; 
+    $bd = 'webservicevm'; 
 
     $conexion = @mysqli_connect($host, $user, $password, $bd);
     

@@ -17,14 +17,14 @@
             $rol = mysqli_real_escape_string($conexion, $_POST['rol']);
 
             //Contrucion de la consulta INSERT utilizando mysqli_field
-            $query = "INSERT INTO usuario(nombre, correo, usuario, clave, rol)
+            $query = "INSERT INTO usuario(nombre, email, usuario, clave, rol)
                     VALUES ('$nombre','$email','$user','$clave','$rol')";
                    
             //ejecucion de la consulta
             if(mysqli_query($conexion,$query)){
                 $alert='<p class="msg_save">Usuario creado correctamente.</p>';
-            }else{
-                $alert='<p class="msg_error">Error al crear usuario.';
+            } else {
+                $alert='<p class="msg_error">Error al crear usuario: ' . mysqli_error($conexion) . '</p>';
             }
            
        }        
@@ -77,7 +77,7 @@
                             if($result_rol > 0){
                                 while($rol = mysqli_fetch_array($query_rol)){
                         ?>
-                            <option value="<?php echo $rol["idrol"]; ?>"><?php echo $rol["rol"] ?></option>
+                            <option value="<?php echo $rol["id_rol"]; ?>"><?php echo $rol["rol"] ?></option>
                         <?php    
                                 }
                             }
